@@ -7,14 +7,11 @@ const port = 3000
 const fs = require('fs')
 
 app.get('/', (req, res) => {
-    res.send(`
-        <div>
-            <button onclick="window.open('${fileURL}')">download EXCEL</button>    
-        </div>
-    `)
+    res.send(`<script>location.href='${fileURL}'</script>`)
 })
 
 app.listen(port, async () => {
+    console.log('http://localhost:' + port)
     console.log(`Example app listening on port ${port}`)
     var home = require("os").homedir();
     let dl = home + '/Downloads/download.xlsx'
